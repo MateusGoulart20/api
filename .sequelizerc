@@ -1,0 +1,23 @@
+
+const path = require('path')
+module.exports = {
+    config: path.resolve('src', 'database', 'config', 'config.js'),
+    // linux: mateus\documentos\pasta
+    // windows: mateus/documentos/pasta
+    // path -> resolve o problema.
+    'migrations-path': path.resolve('src','database','migrations'),
+    // definição de onde os arquivos de migração devem ficar
+}
+
+
+/*
+    comandos terminais:
+npx sequelize db:create
+// cria o banco de dados caso ele não exista
+npx sequelize migration:create --name=create-table-user
+// cria uma migração com o nome especifico para ser trabalhado
+npx sequelize db:migrate
+// executa todas as migrações
+npx sequelize db:migrate:undo
+// desfaz a última as migrações
+*/
