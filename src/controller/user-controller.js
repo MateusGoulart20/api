@@ -4,7 +4,9 @@ const { UserView } = require('../view/user-view');
 class UserController {
     async createUser(name) {
         try {
-            await UserModel.create({ name });
+            await UserModel.create({
+                name
+            });
             UserView.userCreated();
         } catch (error) {
             UserView.errorCreateUser(error);
