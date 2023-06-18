@@ -1,13 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
-
-// modelo sem utilizar o config 
-//const database = new Sequelize('postgres://postgres:menino00@localhost:5432/postgres', { logging: false }); // logging <- definicao de log do sql
-
-// modelo utilizando o config
-const configDatabase = require('./config/config');
-const database = new Sequelize(configDatabase);
+const { Sequelize, DataTypes } = require('sequelize'); // importacoes
+const configDatabase = require('./config/config'); // configurações de banco dados
+const database = new Sequelize(configDatabase); // conexão
  
-// definições de modelos para tipos
+// Chamada de Tabelas
 const { UserModel } = require('../model/user-model');
 const { TaskModel } = require('../model/task-model');
 const { PerformanceModel } = require('../model/performance-model');
@@ -15,7 +10,7 @@ const { TeamModel } = require('../model/team-model');
 const { UserTeamModel } = require('../model/user-team-model');
 const { AlunoModel } = require('../model/aluno-model');
 
-// conecta inicializa os modelos
+// Inicializar Tabelas
 UserModel.init(database);
 TaskModel.init(database);
 PerformanceModel.init(database);
@@ -23,7 +18,7 @@ TeamModel.init(database);
 UserTeamModel.init(database);
 AlunoModel.init(database);
 
-// criando as associações dentro dos tipos
+// Relacionamento de tabelas
 UserModel.associate(database.models);
 TaskModel.associate(database.models);
 PerformanceModel.associate(database.models);
