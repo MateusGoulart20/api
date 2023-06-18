@@ -95,11 +95,11 @@ class TaskController {
             if(!Number.isInteger(id)) throw Error("id: not integer *");
             
             await TaskModel.destroy({where: { id: id }});
-            return response.json({
+            return response.status(201).json({
                 message: `Sucess!`
             });
         } catch (error) {
-            return response.json({
+            return response.status(500).json({
                 message: `Falha: ${error}`
             })
         }
