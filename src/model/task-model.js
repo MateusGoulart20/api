@@ -1,22 +1,23 @@
-const { Model, DataTypes } = require("sequelize");
-
+const { Model, DataTypes } = require('sequelize');
 class TaskModel extends Model {
     static init(database) {
         super.init({
-            description: DataTypes.TEXT,
-            finished: DataTypes.BOOLEAN,
+            //Uma tarefa contém informações como título, descrição, data de vencimento e status (concluída ou pendente).
+            responsavel: DataTypes.INTEGER,
+            titulo: DataTypes.TEXT,
+            descricao: DataTypes.TEXT,
+            vencimento: DataTypes.DATE,
+            status: DataTypes.TEXT,
         }, {
             modelName: 'Task',
-            tableName: 'tasks',
+            tableName: 'task',
             timestamps: false,
             sequelize: database
         });
     }
 
     static associate(models) {
-        // Uma tarefa pertence a um usuário
-        this.belongsTo(models.User, { foreignKey: 'userId' });
+        this.belongsTo(models.User, { foreignKey: 'id' });
     }
 }
-
 module.exports = { TaskModel };

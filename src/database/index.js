@@ -5,24 +5,16 @@ const database = new Sequelize(configDatabase); // conexão
 // Chamada de Tabelas
 const { UserModel } = require('../model/user-model');
 const { TaskModel } = require('../model/task-model');
-const { PerformanceModel } = require('../model/performance-model');
-const { TeamModel } = require('../model/team-model');
-const { UserTeamModel } = require('../model/user-team-model');
-const { AlunoModel } = require('../model/aluno-model');
+//const { AlunoModel } = require('../../old/model/aluno-model');
 
 // Inicializar Tabelas
 UserModel.init(database);
 TaskModel.init(database);
-PerformanceModel.init(database);
-TeamModel.init(database);
-UserTeamModel.init(database);
-AlunoModel.init(database);
+//AlunoModel.init(database);
 
 // Relacionamento de tabelas
 UserModel.associate(database.models);
 TaskModel.associate(database.models);
-PerformanceModel.associate(database.models);
-TeamModel.associate(database.models);
 //AlunoModel.associate(database.models);
 
 

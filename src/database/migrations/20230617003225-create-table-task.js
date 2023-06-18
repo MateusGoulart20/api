@@ -10,9 +10,10 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      responavel: {
+      responsavel: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'user', key: 'id' },
       },
       titulo: {
         type: Sequelize.TEXT,
