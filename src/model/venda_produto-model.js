@@ -14,4 +14,4 @@ class VendaProdutoModel extends Model {
     }
 }
 
-module.exports = { VendaProdutoModel };
+module.exports = {VendaProdutoModel};

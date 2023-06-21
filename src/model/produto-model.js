@@ -18,4 +18,4 @@ class ProdutoModel extends Model {
         this.belongsToMany(models.Venda, { foreignKey: 'id', through: models.VendaProduto });
     }
 }
-module.exports = new ProdutoModel();
+module.exports = {ProdutoModel};

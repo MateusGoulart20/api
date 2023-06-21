@@ -19,4 +19,4 @@ class VendaModel extends Model {
         this.hasOne(models.Funcionario, { foreignKey: 'id' });
     }
 }
-module.exports = { VendaModel };
+module.exports = {VendaModel};
