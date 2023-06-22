@@ -19,13 +19,13 @@ class VendaController {
                     error: 'Venda já existe!'
                 });
             }
-
+            const nome = responsavel;
             const resp = await FuncionarioModel.findOne({
-                where: { nome:responsavel }
+                where: { nome }
             });
-            if (!userExists) {
+            if (!resp) {
                 return response.status(400).json({
-                    error: 'REsponsável não existe!'
+                    error: 'Responsável não existe!'
                 });
             }
 

@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false,
         defaultValue: "Em espera",
       },
-      reponsavel: {
+      responsavel: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'funcionario', key: 'id'},
