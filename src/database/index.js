@@ -10,7 +10,7 @@ const { VendaModel } = require('../model/venda-model');
 const { VendaProdutoModel } = require('../model/venda_produto-model');
 
 // Inicializar Tabelas
-// Object.init(database);
+// Object.init(database)
 FuncionarioModel.init(database);
 ProdutoModel.init(database);
 VendaModel.init(database);
