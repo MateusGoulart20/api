@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const routes = Router();
 
 
 const funcionarioController = require('./controller/funcionario-controller');
@@ -7,6 +6,7 @@ const produtoController = require('./controller/produto-controller');
 const venda = require('./controller/venda-controller');
 //const {   } = require('./controller/');
 
+const routes = Router();
 
 routes.post('/funcionario',funcionarioController.create);
 routes.get('/funcionario',funcionarioController.read);
@@ -37,31 +37,4 @@ routes.post('/task', taskController.create);
 routes.get('/task', taskController.find);
 routes.put('/task', taskController.update);
 routes.delete('/task', taskController.delete);
-*/
-/*
-const { Router } = require('express');
-
-const signupUserController = require('./controllers/signup-user-controller');
-const siginUserController = require('./controllers/sigin-user-controller');
-const createNutritionistController = require('./controllers/create-nutritionist-controller');
-const deleteNutritionistController = require('./controllers/delete-nutritionist-controller');
-const createRecipeController = require('./controllers/create-recipe-controller');
-
-const { authMiddleware } = require('./middleware/auth-middleware');
-
-const routes = Router();
-
-// Users
-routes.post('/register', signupUserController.signup);
-routes.post('/login', siginUserController.sigin);
-
-// Nutritionist
-routes.post('/nutritionist', authMiddleware, createNutritionistController.create);
-routes.delete('/nutritionist', authMiddleware, deleteNutritionistController.delete);
-
-// Recipe
-routes.post('/recipe', authMiddleware, createRecipeController.create);
-
-module.exports = { routes };
-
 */
