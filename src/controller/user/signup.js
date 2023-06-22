@@ -9,37 +9,41 @@ const { UserModel } = require('../../model/user-model');
 class Signup {
     async signup(request, response) {
         try {
-            const { name, password } = request.body;
+            let { name, password } = request.body;
 
             // Validar parâmetros
             if (!name)  return response.status(400).json({ error: 'Nome é obrigatório!' }); 
             if (!password)  return response.status(400).json({ error: 'Senha é obrigatória!' }); 
-
+            console.log("a "+ password)
             // Criptografia senha
             const passwordHashed = await bcrypt.hash(
                 password,
                 Number(process.env.SALT)
             );
-            if (!password) { return response.status(400).json({ error: 'Falha hash!' }) };
+            console.log("b")
+            if (!passwordHashed) { return response.status(400).json({ error: 'Falha hash!' }) };
+            console.log("b+")
+            password = passwordHashed;
             // Cria usuário
+            console.log(name+" "+password)
             const user = await UserModel.create({
                 name,
-                password: passwordHashed,
+                password,
             });
-
+            console.log("c")
             if (!user) {
                 return response.status(400).json({
                     error: 'Houve um erro ao criar usuário'
                 });
             }
-
+            console.log("d")
             // Gera e retorna o access token
             const accessToken = jwt.sign(
                 { id: user.id },
                 process.env.TOKEN_SECRET,
                 { expiresIn: '30m' }
             );
-
+            console.log("e")
             return response.status(201).json({ accessToken });
         } catch (error) {
             return response.status(500).json({

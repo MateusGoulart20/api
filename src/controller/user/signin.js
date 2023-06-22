@@ -17,7 +17,7 @@ class Signin {
                     error: 'Nome e senha são obrigatórios!'
                 });
             }
-
+            
             // Verifica se usuário existe
             const userExists = await UserModel.findOne({
                 where: { name }
