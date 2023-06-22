@@ -1,29 +1,26 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { UserModel } = require('../models/user-model');
+const { UserModel } = require('../../model/user-model');
 
 /**
  * Criar usuário e retorna um token de acesso
  */
-class SignupUserController {
+class Signup {
     async signup(request, response) {
         try {
             const { name, password } = request.body;
 
             // Validar parâmetros
-            if (!name || !password) {
-                return response.status(400).json({
-                    error: 'Nome e senha são obrigatórios!'
-                });
-            }
+            if (!name)  return response.status(400).json({ error: 'Nome é obrigatório!' }); 
+            if (!password)  return response.status(400).json({ error: 'Senha é obrigatória!' }); 
 
             // Criptografia senha
             const passwordHashed = await bcrypt.hash(
                 password,
                 Number(process.env.SALT)
             );
-
+            if (!password) { return response.status(400).json({ error: 'Falha hash!' }) };
             // Cria usuário
             const user = await UserModel.create({
                 name,
@@ -52,4 +49,4 @@ class SignupUserController {
     }
 }
 
-module.exports = new SignupUserController();
+module.exports = new Signup();

@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { UserModel } = require('../models/user-model');
+const { UserModel } = require('../../model/user-model');
 
 /**
  * Entra com o usuário e retorna um token de acesso
  */
-class SiginUserController {
+class Signin {
     async sigin(request, response) {
         try {
             const { name, password } = request.body;
@@ -54,4 +54,4 @@ class SiginUserController {
     }
 }
 
-module.exports = new SiginUserController();
+module.exports = new Signin();
