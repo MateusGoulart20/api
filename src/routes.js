@@ -13,9 +13,6 @@ const deleteTask = require('./controller/task/delete-task');
 //const taskController = new TaskController();
 const { authMiddleware } = require('./middleware/auth-middleware');
 
-
-
-
 // Users
 routes.post('/api/users', signupUser.signup);
 routes.post('/api/authenticate', siginUser.sigin);
