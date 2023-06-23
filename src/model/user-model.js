@@ -4,17 +4,18 @@ class UserModel extends Model {
     static init(database) {
         super.init({
             name: DataTypes.TEXT,
-            password: DataTypes.TEXT
+            password: DataTypes.TEXT,
+            email: DataTypes.TEXT
         }, {
-            tableName: 'users',
+            tableName: 'user',
             modelName: 'User',
             timestamps: false,
             sequelize: database
         });
     }
-
+    
     static associate(models) {
-        this.hasMany(models.Nutritionist, { foreignKey: 'userId' });
+        this.hasMany(models.Task, { foreignKey: 'responsavel' });
     }
 }
 

@@ -2,8 +2,12 @@ const { Router } = require('express');
 const routes = Router();
 
 //const {   } = require('./controller/');
-const signupUserController = require('./controller/user/signup');
-const siginUserController = require('./controller/user/signin');
+const signupUser = require('./controller/user/signup');
+const siginUser = require('./controller/user/signin');
+const createTask = require('./controller/task/create-task');
+const readTask = require('./controller/task/read-task');
+const updateTask = require('./controller/task/update-task');
+const deleteTask = require('./controller/task/delete-task');
 
 // Pegando new () da class
 //const taskController = new TaskController();
@@ -13,8 +17,12 @@ const { authMiddleware } = require('./middleware/auth-middleware');
 
 
 // Users
-routes.post('/register', signupUserController.signup);
-routes.post('/login', siginUserController.sigin);
+routes.post('/api/users', signupUser.signup);
+routes.post('/api/authenticate', siginUser.sigin);
+routes.post('/api/todos', authMiddleware, createTask.create);
+routes.get('/api/todos', authMiddleware, readTask.read);
+routes.put('/api/todos/:id', authMiddleware, updateTask.update);
+routes.delete('/api/todos/:id',  authMiddleware, deleteTask.delete);
 
 module.exports = { routes };
 

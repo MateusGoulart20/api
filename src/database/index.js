@@ -4,11 +4,13 @@ const database = new Sequelize(configDatabase); // conexão
  
 // Chamada de Modelos
 // const { Object } = require('../../model/object-model');
-// const { FuncionarioModel } = require('../../old/Produto-Venda-Funcionario/model/funcionario-model');
+const { UserModel } = require('./../model/user-model');
+const { TaskModel } = require('./../model/task-model');
 
 // Inicializar Tabelas
 // Object.init(database)
-// FuncionarioModel.init(database);
+UserModel.init(database);
+TaskModel.init(database);
 
 // Relacionamento de tabelas
 // Objetct.associate(database.models);

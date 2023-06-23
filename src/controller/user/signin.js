@@ -9,18 +9,15 @@ const { UserModel } = require('../../model/user-model');
 class Signin {
     async sigin(request, response) {
         try {
-            const { name, password } = request.body;
+            const { email, password } = request.body;
 
             // Validar parâmetros
-            if (!name || !password) {
-                return response.status(400).json({
-                    error: 'Nome e senha são obrigatórios!'
-                });
-            }
+            if (!email) {return response.status(400).json({error: 'Email é obrigatório!'});}
+            if (!password) {return response.status(400).json({error: 'Senha é obrigatória!'});}
             
             // Verifica se usuário existe
             const userExists = await UserModel.findOne({
-                where: { name }
+                where: { email }
             });
 
             if (!userExists) {
