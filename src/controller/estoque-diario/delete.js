@@ -6,18 +6,15 @@ const { UserModel } = require('../../model/user-model');
 /**
  * Entra com o usuário e retorna um token de acesso
  */
-class Signin {
-    async sigin(request, response) {
+class Delete {
+    async delete(request, response) {
         try {
-            const { name, password } = request.body;
-
-            // Validar parâmetros
-            if (!name) {return response.status(400).json({error: 'Nome é obrigatório!'});}
-            if (!password) {return response.status(400).json({error: 'Senha é obrigatória!'});}
+            const { nome, password } = request.body;
+            
             
             // Verifica se usuário existe
             const userExists = await UserModel.findOne({
-                where: { name }
+                where: { nome } 
             });
 
             if (!userExists) {
@@ -25,22 +22,16 @@ class Signin {
                     error: 'Usuario não existe!'
                 });
             }
-            
+
             // Verifica se a senha está correta
             const isPasswordValid = await bcrypt.compare(password, userExists.password);
-            
+
             if (!isPasswordValid) {
                 return response.status(400).json({
                     error: 'Senha incorreta!'
                 });
             }
-            // Gera e retorna o access token
-            const accessToken = jwt.sign(
-                { id: userExists.id },
-                process.env.TOKEN_SECRET,
-                { expiresIn: '30m' }
-            );
-            return response.status(200).json({ accessToken });
+            return response.status(200).json({ message: "sucess" });
         } catch (error) {
             return response.status(500).json({
                 error: `Erro interno: ${error}`
@@ -49,4 +40,4 @@ class Signin {
     }
 }
 
-module.exports = new Signin();
+module.exports = new Delete();

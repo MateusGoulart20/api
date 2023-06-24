@@ -12,7 +12,6 @@ class TaskModel extends Model {
             sequelize: database
         });
     }
-    
     static associate(models) {
         this.belongsTo(models.User, { foreignKey: 'id' });
     }

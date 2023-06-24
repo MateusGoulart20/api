@@ -1,4 +1,4 @@
-const { TaskModel } = require('../../model/task-model');
+const { TaskModel } = require('../../../src/model/task-model');
 
 /**
  * Cria nutricionista e retorna a nutricionista

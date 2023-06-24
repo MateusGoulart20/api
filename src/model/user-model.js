@@ -5,7 +5,6 @@ class UserModel extends Model {
         super.init({
             name: DataTypes.TEXT,
             password: DataTypes.TEXT,
-            email: DataTypes.TEXT
         }, {
             tableName: 'user',
             modelName: 'User',
@@ -13,10 +12,5 @@ class UserModel extends Model {
             sequelize: database
         });
     }
-    
-    static associate(models) {
-        this.hasMany(models.Task, { foreignKey: 'responsavel' });
-    }
 }
-
 module.exports = { UserModel };
