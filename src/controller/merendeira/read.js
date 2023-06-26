@@ -17,7 +17,7 @@ class Read {
             // Cria usuário
             let merendeiras = await MerendeiraModel.findAll();
             if(nome) merendeiras = merendeiras.filter(merendeira => merendeira.nome == nome)
-            return response.status(201).json({ merendeiras });
+            return response.status(201).json(merendeiras);
         } catch (error) {
             return response.status(500).json({
                 error: `Erro interno: ${error}`

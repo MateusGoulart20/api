@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { UserModel } = require('../../model/user-model');
+const { EstoqueDiarioModel } = require('../../model/estoque_diario');
 
 /**
  * Entra com o usuário e retorna um token de acesso
@@ -9,24 +9,22 @@ const { UserModel } = require('../../model/user-model');
 class Read {
     async read(request, response) {
         try {
-            const { email, password } = request.body;
+            //const { email, password } = request.body;
 
             // Validar parâmetros
-            if (!email) {return response.status(400).json({error: 'Email é obrigatório!'});}
-            if (!password) {return response.status(400).json({error: 'Senha é obrigatória!'});}
+            //if (!email) {return response.status(400).json({error: 'Email é obrigatório!'});}
+            //if (!password) {return response.status(400).json({error: 'Senha é obrigatória!'});}
             
             // Verifica se usuário existe
-            const userExists = await UserModel.findOne({
-                where: { email } 
-            });
+            const estoques = await EstoqueDiarioModel.findAll();
 
-            if (!userExists) {
+            if (!estoques) {
                 return response.status(400).json({
-                    error: 'Usuario não existe!'
+                    error: 'Estoques não existe!'
                 });
             }
-
-            return response.status(200).json({ accessToken });
+            return response.status(200).json(estoques)
+            //return response.status(200).json({ accessToken });
         } catch (error) {
             return response.status(500).json({
                 error: `Erro interno: ${error}`
