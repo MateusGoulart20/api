@@ -11,6 +11,8 @@ class MerendeiraModel extends Model {
             sequelize: database
         });
     }
-    
+    static associate(models) {
+        this.belongsTo(models.EstoqueDiario, { foreignKey: 'id' });
+    }
 }
 module.exports = { MerendeiraModel };

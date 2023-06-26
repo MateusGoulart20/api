@@ -1,5 +1,5 @@
-const { AlunoModel } = require('../model/aluno-model');
-const { AlunoView } = require('../../src/view/aluno-view');
+const { AlunoModel } = require('./aluno-model');
+const { AlunoView } = require('./aluno-view');
 
 class AlunoController {
     async createAluno(nome, sexo, dataNascimento, curso, cursaEnsionSuperior, estagiando) {
