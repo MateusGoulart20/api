@@ -3,30 +3,28 @@ ins {
     display: block;
     text-decoration: none;
     position: relative;
+    background-color: #d4fcbc;
 }
 
 del {
     background-color: #fbb;
 }
 
-ins {
-    background-color: #d4fcbc;
-}
+
 
 del::before,
 ins::before {
     position: absolute;
     left: 0.5rem;
     font-family: monospace;
+    content: '+';
 }
 
 del::before {
     content: '−';
 }
 
-ins::before {
-    content: '+';
-}
+
 
 p {
     margin: 0 1.8rem 0;
@@ -37,39 +35,18 @@ abbr {
     font-style: italic;
     color: chocolate;
 }
-a[href^='mailto']::before {
-    content: '📧 ';
-}
 
-a[href^='tel']::before {
-    content: '📞 ';
-}
 img {
-    display: block;
-    margin: 0 auto;
+    display: inline-grid;
+    margin: 0 0;
     width: 30%;
     height: 30%;
-}
-.icon {
-    width: 10%;
-    height: 10%;
 }
 .forecast {
     margin: 0;
     padding: 0.3rem;
     background-color: #eee;
     font: 1rem 'Fira Sans', sans-serif;
-}
-.coral{
-    border-radius: 20px;
-    background-color: #a06060;
-}
-.horizontal{
-    display: inline flex;
-    align-items: center;
-}
-.vertical{
-    display: inline grid;
 }
 
 .forecast > h1,
@@ -108,7 +85,8 @@ p {
 body {
     margin-left: 20%;
     margin-right: 20%;
-    background-color : #60a0a0;
+    background-color : #206060;
+    color: #d0d0d0
 }
 figure {
     margin: 0;
@@ -143,17 +121,71 @@ blockquote p::after {
     background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
-
+/* I'm Doing */
 .round {
-    border-radius: 100%;
+    /*//border-radius: 10px;*/
+    border-radius: 50%;
+}
+.center {
+    text-align: center;
+    place-self: center;
+}
+.toBottom {
+    place-self: bottom;
 }
 .left {
-    
+    place-self: left;
     display: left;
     text-align: left;
     align-self: left;
     align-content: left;
 }
+.icon {
+    
+    width: 60px;
+    height: 60px;
+}
+.coral{
+    border-radius: 20px;
+    background-color: #a06060;
+}
+.horizontal{
+    display: inline-flex;
+    justify-content: space-around;
+    /*background-color: #ff00ff;*/
+}
+.vertical{
+    display: inline-grid;
+    /*background-color: aqua;*/
+}
+
+.lefter {
+    float: left;
+    background-color: #00ff00;
+    width: 20%;
+    height: 100%;
+}
+.centerer {
+    float: center;
+    background-color: #ffffff;
+}
+.righter {
+    float: right;
+    background-color: #0000ff;
+    width: 20%;
+    height: 100%;
+}
+.noMargin{
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.block {
+    display: block;
+}
+section {
+    color: black;
+}
+
 .styled:hover {
     background-color: rgba(255, 0, 0, 1);
 }
@@ -209,6 +241,17 @@ tr:nth-child(odd) td {
     letter-spacing: 3px;
     text-shadow: 1px 1px 0 #fff, 0 0 9px #000;
 }
+h1 {
+    font:italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    color: #00ffff;
+}
+a {
+    color: #00ffff
+}
+
+
 label {
     padding-right: 10px;
     font-size: 1rem;
