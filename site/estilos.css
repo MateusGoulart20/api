@@ -89,7 +89,8 @@ body {
     margin-left: 20%;
     margin-right: 20%;
     background-color : #206060;
-    color: #ffffff
+    color: #ffffff;
+    
 }
 figure {
     margin: 0;
@@ -130,11 +131,14 @@ blockquote p::after {
     border-radius: 50%;
 }
 .center {
+    float: center;
     text-align: center;
     place-self: center;
     align-items: center;
     align-self: center;
+    
 }
+
 .toBottom {
     place-self: bottom;
 }
@@ -170,10 +174,7 @@ blockquote p::after {
     width: 20%;
     height: 100%;
 }
-.centerer {
-    float: center;
-    background-color: #ffffff;
-}
+
 .righter {
     float: right;
     background-color: #0000ff;
@@ -263,11 +264,11 @@ label {
 }
 
 @media (max-width: 900px) {
-    header {
+    .center {
         flex-direction: column;
     }
 
-    header img {
+    .center>img {
         max-width: 80%;
     }
 }
