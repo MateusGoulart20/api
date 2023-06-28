@@ -1,5 +1,4 @@
-del,
-ins {
+del, ins {
     display: block;
     text-decoration: none;
     position: relative;
@@ -10,7 +9,18 @@ del {
     background-color: #fbb;
 }
 
-
+input {
+    border-color: transparent;
+    border:transparent ;
+}
+input:active {
+    border-color: transparent;
+    border:transparent ;
+}
+input:hover {
+    border-color: transparent;
+    border:transparent ;
+}
 
 del::before,
 ins::before {
@@ -79,7 +89,7 @@ body {
     margin-left: 20%;
     margin-right: 20%;
     background-color : #206060;
-    color: #d0d0d0
+    color: #ffffff
 }
 figure {
     margin: 0;
@@ -122,6 +132,8 @@ blockquote p::after {
 .center {
     text-align: center;
     place-self: center;
+    align-items: center;
+    align-self: center;
 }
 .toBottom {
     place-self: bottom;
