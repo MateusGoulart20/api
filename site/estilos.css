@@ -2,24 +2,27 @@ del, ins {
     display: block;
     text-decoration: none;
     position: relative;
-    background-color: #d4fcbc;
 }
 
+ins {
+    background-color: #d4fcbc;
+}
 del {
     background-color: #fbb;
 }
 
 input {
-    border-color: transparent;
-    border:transparent ;
+    border: 2px 2px 2px 2px;
+    border-color: #000000;
+    border-radius: 10px;
+    font-size: larger;
+    margin: 1rem 1rem 1rem 1rem;
 }
 input:active {
-    border-color: transparent;
-    border:transparent ;
+    border-color: #00ff00;
 }
 input:hover {
-    border-color: transparent;
-    border:transparent ;
+    border-color: #ffff00;
 }
 
 del::before,
@@ -27,31 +30,14 @@ ins::before {
     position: absolute;
     left: 0.5rem;
     font-family: monospace;
+}
+ins::before {
     content: '+';
 }
-
 del::before {
     content: '−';
 }
 
-
-
-p {
-    margin: 0 1.8rem 0;
-    font-family: Georgia, serif;
-    font-size: 1rem;
-}
-abbr {
-    font-style: italic;
-    color: chocolate;
-}
-
-img {
-    display: inline-grid;
-    margin: 0 0;
-    width: 30%;
-    height: 30%;
-}
 .forecast {
     margin: 0;
     padding: 0.3rem;
@@ -82,15 +68,11 @@ aside > p {
     margin: 0.5rem;
 }
 
-p {
-    font-family: 'Fira Sans', sans-serif;
-}
 body {
     margin-left: 20%;
     margin-right: 20%;
-    background-color : #206060;
-    color: #ffffff;
-    
+    background-color : #7f7f7f;
+    color: #000000;
 }
 figure {
     margin: 0;
@@ -112,33 +94,20 @@ blockquote p::before {
 blockquote p::after {
     content: '\201D';
 }
-.styled {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);
-    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
-}
+/*
+
 /* I'm Doing */
 .round {
-    /*//border-radius: 10px;*/
-    border-radius: 50%;
+    border-radius: 100%;
 }
 .center {
-    float: center;
+    
     text-align: center;
     place-self: center;
     align-items: center;
     align-self: center;
     
 }
-
 .toBottom {
     place-self: bottom;
 }
@@ -192,16 +161,7 @@ section {
     color: black;
 }
 
-.styled:hover {
-    background-color: rgba(255, 0, 0, 1);
-}
 
-.styled:active {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
-.white {
-    background-color: #FFF;
-}
 caption {
     padding: 10px;
     caption-side: bottom;
@@ -247,11 +207,10 @@ tr:nth-child(odd) td {
     letter-spacing: 3px;
     text-shadow: 1px 1px 0 #fff, 0 0 9px #000;
 }
-h1 {
-    font:italic;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+.texto {
     color: #00ffff;
+    font:italic;
+
 }
 a {
     color: #00ffff
