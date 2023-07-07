@@ -1,34 +1,7 @@
-//import { Info } from './components/Info';
-//import { Foto } from './components/Foto';
-//import { Atividade } from './components/Atividade';
-//import { Cadastro } from './components/Cadastro';
+
 import { useState } from 'react';
 import styles from './styles.css'
 
-/*function Button(props) {
-  if (props.icon) {
-    return (
-      <button>
-        {props.icon}
-      </button>
-    )
-  }
-
-  return (
-    <button>
-      Botão
-    </button>
-  )
-};*/
-/*
-function atualizarLista() {
-  const val = document.querySelector('#entrada').value;
-  console.log(val);
-  lista.push(val);
-  console.log(lista);
-  return lista;
-}*/
-//let lista = ['Marcos', 'João', 'Pedro', 'Lucas'];
 function App() {
 
   //const [lista, setNome] = useState(0);
