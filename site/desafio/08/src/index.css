@@ -8,9 +8,6 @@ body {
 }
 
 code {
-  font-family: sans-serif, monospace;
-}
-
-abbr {
-  font-variant: all-small-caps;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
