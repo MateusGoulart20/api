@@ -7,9 +7,10 @@ export default function App() {
   const onSubmit = (data) => {
     console.log(data);
   }
-  const name = watch('name');
+  const nome = watch('name');
   const email = watch('email');
   const senha = watch('password');
+  const nascimento = watch('birthday');
 
   return (
     <div>
@@ -120,7 +121,8 @@ export default function App() {
         <button 
         type="submit" 
         className='entrada'
-        disabled={!email || !senha || !name}>Cadastrar</button>
+        disabled={!email || !senha || !nome || !nascimento}
+        >Cadastrar</button>
       </form>
     </div>
   );
