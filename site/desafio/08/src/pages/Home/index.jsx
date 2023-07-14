@@ -9,6 +9,16 @@ export function Home() {
         setRepos();
     }, []);
 
+    async function removeRepos(id) {
+        try {
+            const result = repos.filter(repo => repo.id !== id);
+            
+            await setRepos(result);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     async function getPerfil(username) {
         try {
             let result, resulta;
@@ -50,10 +60,10 @@ export function Home() {
             <a href={perfil.html_url} target="_blanck"><h1>{perfil.login}</h1></a>
             <p>Nome: {perfil.name}</p>
             <p>📌: {perfil.location}</p>
-            <p>✉️: {perfil.email}</p>
-            <p>👔: {perfil.hireable}</p>
-            <p>Bio: {perfil.bio}</p>
-            <p>Twitter:{perfil.twitter_username}</p>
+            <p>email: {perfil.email}</p>
+            {perfil.hireable && <p>👔: {perfil.hireable}</p>}
+            {perfil.bio && <p>Bio: {perfil.bio}</p>}
+            {perfil.twitter_username && <p>Twitter:{perfil.twitter_username}</p>}
             <p>Repositórios Publicos: {perfil.public_repos}</p>
             <p>Gists Públicos: {perfil.public_gists}</p>
             <p>Seguidores: {perfil.followers}</p>
@@ -61,7 +71,17 @@ export function Home() {
             {repos
                 ? repos.map((repo, index) => (
                     <div className='cardFood' key={index}>
-                        <a href='https://github.com/MateusGoulart20/api' target='_blank'><p>{repo.name}</p></a>
+                        
+                        <a href='https://github.com/MateusGoulart20/api' target='_blank'>
+                            <p>
+                                {repo.name}
+                            </p>
+                        </a>
+                        <button
+                            onClick={() => removeRepos(repo.id)}
+                        >
+                            Remover
+                        </button>
                     </div>
                 ))
                 : <p className='listEmpty'>Lista Repositórios Vazia</p>
