@@ -1,7 +1,9 @@
+//import './App.css';
 // npm install react-bootstrap bootstrap react-hook-form
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Input } from './components/Input';
+
 
 /*
 - “Nome Completo“: obrigatório
@@ -33,16 +35,16 @@ export default function App() {
     }*/
   }
   return (
+    <div className="d-flex align-items-center" style={{ height: '100vh' }}>
 
       <Form
         noValidate
         validated={!!errors}
         onSubmit={handleSubmit(onSubmit)}
         className='w-50 bg-red'
-
       >
-        <Col>
-          <Row>
+        <Col className=''>
+          <Row className='p-2'>
             <Input
               label="Nome Completo"
               type="text"
@@ -57,8 +59,7 @@ export default function App() {
                 },
               })}
             />
-          </Row>
-          <Row>
+          </Row><Row className='p-2'>
             <Input
               label="Senha"
               type="password"
@@ -72,36 +73,34 @@ export default function App() {
                   message: 'Senha é obrigatório'
                 }
               })}
-          />
-        </Row>
-        <Row>
-          <Input
-            label="Data de nascimento"
-            type="date"
-            placeholder="Insira sua senha"
-            error={errors.password}
-            required={true}
-            name="birthday"
-            validations={register('birthday', {
-              required: {
-                value: true,
-                message: 'Nascimento é obrigatório'
-              }
-            })}
-          />
-        </Row>
-        <Row>
-
-          <Form.Check // prettier-ignore
-            id='news'
-            label='Aceito receber novidades por e-mail'
-            type='checkbox'
-            checked
-            {...register('news')}
-          />
-        </Row>
-      </Col>
-      <Button type="submit">Cadastrar</Button>
-    </Form>
+            />
+          </Row><Row className='p-2'>
+            <Input
+              label="Data de nascimento"
+              type="date"
+              placeholder="Insira sua senha"
+              error={errors.password}
+              required={true}
+              name="birthday"
+              validations={register('birthday', {
+                required: {
+                  value: true,
+                  message: 'Nascimento é obrigatório'
+                }
+              })}
+            />
+          </Row><Row className='p-2'>
+            <Form.Check // prettier-ignore
+              id='news'
+              label='Aceito receber novidades por e-mail'
+              type='checkbox'
+              checked
+              {...register('news')}
+            />
+          </Row>
+        </Col>
+        <Button type="submit" className='p-2'>Cadastrar</Button>
+      </Form>
+    </div>
   );
 }
