@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace, sans-serif;
+    background-color: #141414;
+    color: white
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+}
+
+.cardFood {
+    background-color: white;
+    color: black;
+    width: 70%;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.listEmpty {
+    text-align: center;
+}
+
+button {
+    border-style: none;
+    padding: 1rem;
+    background-color: yellowgreen;
+    color: white;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+
+@media (max-width: 300px) {
+    .cardFood {
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 1rem;
+    }
+}
