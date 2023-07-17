@@ -10,9 +10,12 @@ import { useState } from "react";
 export function Register() {
     const { handleSubmit, register, formState: { errors } } = useForm();
     const [ result, setResult ] = useState(null);
+    const navigate = useNavigate();
+
     const onSubmit = async (data) => {
         const user = await registerUser(data);
         setResult(user);
+        navigate("/foods");
     }
 
     return (

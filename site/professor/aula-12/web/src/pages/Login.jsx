@@ -10,9 +10,12 @@ import { loginUser } from "../services/user-services";
 export function Login() {
     const { handleSubmit, register, formState: { errors } } = useForm();
     const [ result, setResult ] = useState(null);
+    const navigate = useNavigate();
+
     const onSubmit = async (data) => {
         const user = await loginUser(data);
         setResult(user);
+        navigate("/foods");
     }
 
     return (
