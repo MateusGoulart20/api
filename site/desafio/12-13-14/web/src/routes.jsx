@@ -1,7 +1,9 @@
+import { UserContextProvider } from './contexts/UserContext';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { Profile } from "./pages/Profile";
 import { Foods } from "./pages/Foods";
 import { FoodsRead } from "./pages/FoodsRead";
 
@@ -18,10 +20,8 @@ export function Navigations() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index path="/" element={<Login />} />
-                <Route path="/register" element={<Register />} />
                 <Route
-                    path="/foods"
+                    path="/update"
                     element={(
                         <PrivateRoute>
                             <Foods />
@@ -29,7 +29,7 @@ export function Navigations() {
                     )}
                 />
                 <Route
-                    path="/foods/view"
+                    path="/read"
                     element={(
                         <PrivateRoute>
                             <FoodsRead />
@@ -37,6 +37,13 @@ export function Navigations() {
                     )}
                 />
             </Routes>
+            <UserContextProvider>
+                <Routes>
+                    <Route index path="/" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/profile" element={<Profile />} />
+                </Routes>
+            </UserContextProvider>
         </BrowserRouter>
     )
 }

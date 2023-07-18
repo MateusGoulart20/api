@@ -18,7 +18,7 @@ export function Register() {
         try {
             const user = await registerUser(data);
             setResult(user);
-            navigate('/foods');
+            navigate('/update');
         } catch (error) {
             setResult({
                 title: 'Houve um erro no cadastro!',
@@ -35,7 +35,7 @@ export function Register() {
                 message={result?.message}
                 handleClose={() => setResult(null)}
             />
-            <Header title="Crie sua conta" />
+            <Header title="Crie sua conta" color="#fff" />
             <Form
                 noValidate
                 validated={!!errors}

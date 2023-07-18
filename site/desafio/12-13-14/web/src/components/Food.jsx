@@ -19,14 +19,18 @@ export function Food(props) {
                 <Card.Title><b>Nome: </b>{props.food.nome}</Card.Title>
                 <Card.Text><b>Unidade de medida: </b>{props.food.unidadeMedida}</Card.Text>
                 <Row xs="auto" className="d-flex justify-content-end">
+                    {props.editFood && 
                     <Button variant="secondary" onClick={() => setIsUpdated(true)}>Editar</Button>
-                    <Button
-                        variant="outline-danger"
-                        className="ms-3"
-                        onClick={props.removeFood}
-                    >
-                        Apagar
-                    </Button>
+                    }
+                    {props.removeFood && 
+                        <Button
+                            variant="outline-danger"
+                            className="ms-3"
+                            onClick={props.removeFood}
+                        >
+                            Apagar
+                        </Button>
+                    }
                 </Row>
             </Card>
             <Modal show={isUpdated} onHide={() => setIsUpdated(false)}>

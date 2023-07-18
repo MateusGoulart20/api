@@ -1,8 +1,7 @@
-import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-
 import { Food } from "../components/Food";
 import { Header } from "../components/Header";
 import { Input } from '../components/Input';
@@ -83,10 +82,16 @@ export function Foods() {
     
     return (
         <Container fluid>
-            <Header title="Alimentos" color="#fffffff" />
-            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5`}>
-                <Col md='10'>
+            <Header title="Alimentos (Update)" color="#ffffff" />
+            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5`
+            /*
+            <Col md='10'>
                     <Button onClick={() => setIsCreated(true)}>Criar novo alimento</Button>
+            </Col>
+            */
+            }>
+                <Col md='10'>
+                    <Link to="/read">Leitura</Link>
                 </Col>
                 <Col md='2'>
                     <Button variant="secondary" onClick={() => {
@@ -100,13 +105,17 @@ export function Foods() {
                     ? foods.map((food, index) => (
                         <Food
                             key={index}
-                            food={food}
-                            removeFood={async () => await removeFood(food.id)}
+                            food={food
+                            //removeFood={async () => await removeFood(food.id)}
+                            }
+                            
                             editFood={editFood}
                         />
                     ))
                     : <p className="text-center">Não existe nenhum alimento cadastrado!</p>}
             </Col>
+            { false ? `
+
             <Modal show={isCreated} onHide={() => setIsCreated(false)}>
                 <Modal.Header>
                     <Modal.Title>Cadastrar novo alimento</Modal.Title>
@@ -149,6 +158,7 @@ export function Foods() {
                     </Modal.Footer>
                 </Form>
             </Modal>
+            `:``}
         </Container>
     );
 }

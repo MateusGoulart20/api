@@ -18,7 +18,7 @@ export function Login() {
         try {
             const user = await loginUser(data);
             setResult(user);
-            navigate('/foods');
+            navigate('/update');
         } catch (error) {
             setResult({
                 title: 'Houve um erro no login!',
@@ -35,7 +35,7 @@ export function Login() {
                 message={result?.message}
                 handleClose={() => setResult(null)}
             />
-            <Header title="Entre na sua conta" />
+            <Header title="Entre na sua conta" color="#fff" />
             <Form
                 noValidate
                 validated={!!errors}

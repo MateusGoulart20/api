@@ -1,6 +1,6 @@
-import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 
 import { Food } from "../components/Food";
@@ -83,10 +83,16 @@ export function FoodsRead() {
     
     return (
         <Container fluid>
-            <Header title="Alimentos" color="#fffffff" />
-            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5`}>
-                <Col md='10'>
+            <Header title="Alimentos (Read)" color="#fff" />
+            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5`
+            /*
+            <Col md='10'>
                     <Button onClick={() => setIsCreated(true)}>Criar novo alimento</Button>
+            </Col>
+            */
+            }>
+                <Col md='10'>
+                    <Link to="/update">Atualizações</Link>
                 </Col>
                 <Col md='2'>
                     <Button variant="secondary" onClick={() => {
@@ -100,9 +106,10 @@ export function FoodsRead() {
                     ? foods.map((food, index) => (
                         <Food
                             key={index}
-                            food={food}
-                            removeFood={async () => await removeFood(food.id)}
-                            editFood={editFood}
+                            food={food
+                            //removeFood={async () => await removeFood(food.id)}
+                            //editFood={editFood}
+                            }                            
                         />
                     ))
                     : <p className="text-center">Não existe nenhum alimento cadastrado!</p>}
