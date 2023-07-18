@@ -14,7 +14,7 @@ export function Foods() {
     const { handleSubmit, register, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+    const falso = false;
     useEffect(() => {
         findFoods();
         // eslint-disable-next-line
@@ -79,17 +79,18 @@ export function Foods() {
     }
 
 
-    
+
     return (
         <Container fluid>
             <Header title="Alimentos (Update)" color="#ffffff" />
-            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5`
-            /*
-            <Col md='10'>
-                    <Button onClick={() => setIsCreated(true)}>Criar novo alimento</Button>
-            </Col>
-            */
-            }>
+            <Link to="/profile">profile</Link>
+            <Row className={`${isSmallScreen ? 'w-75' : 'w-50'} m-auto mb-5 mt-5}`}>
+            { falso ? 
+                <Col md='10'>
+                <Button onClick={() => setIsCreated(true)}>Criar novo alimento</Button>
+                </Col>
+                : ''
+            }
                 <Col md='10'>
                     <Link to="/read">Leitura</Link>
                 </Col>
@@ -114,7 +115,7 @@ export function Foods() {
                     ))
                     : <p className="text-center">Não existe nenhum alimento cadastrado!</p>}
             </Col>
-            { false ? `
+            { false ? 
 
             <Modal show={isCreated} onHide={() => setIsCreated(false)}>
                 <Modal.Header>
@@ -158,7 +159,8 @@ export function Foods() {
                     </Modal.Footer>
                 </Form>
             </Modal>
-            `:``}
-        </Container>
+            : ''
+    }
+        </Container >
     );
 }

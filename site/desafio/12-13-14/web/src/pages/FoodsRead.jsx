@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
+import { Container, Col, Button, Row } from "react-bootstrap";
+//import { Container, Col, Modal, Form, Button, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from 'react-hook-form';
+//import { useForm } from 'react-hook-form';
 
 import { Food } from "../components/Food";
 import { Header } from "../components/Header";
-import { Input } from '../components/Input';
+//import { Input } from '../components/Input';
 
-import { createFood, deleteFood, getFoods, updateFood } from "../services/food-service";
+import {  getFoods } from "../services/food-service";
+//import { createFood, deleteFood, getFoods, updateFood } from "../services/food-service";
 
 export function FoodsRead() {
     const [foods, setFoods] = useState([]);
-    const [isCreated, setIsCreated] = useState(false);
-    const { handleSubmit, register, formState: { errors } } = useForm();
+//    const [isCreated, setIsCreated] = useState(false);
+//    const { handleSubmit, register, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -46,7 +48,7 @@ export function FoodsRead() {
             navigate('/');
         }
     }
-
+/*
     async function removeFood(id) {
         try {
             await deleteFood(id);
@@ -55,7 +57,7 @@ export function FoodsRead() {
             console.error(error);
         }
     }
-
+*//*
     async function addFood(data) {
         try {
             await createFood(data);
@@ -65,7 +67,7 @@ export function FoodsRead() {
             console.error(error);
         }
     }
-
+*//*
     async function editFood(data) {
         try {
             await updateFood({
@@ -78,7 +80,7 @@ export function FoodsRead() {
             console.error(error);
         }
     }
-
+*/
 
     
     return (

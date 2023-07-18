@@ -8,16 +8,22 @@ import { Header } from '../components/Header';
 import { Modal } from '../components/Modal';
 
 import { loginUser } from '../services/user-services';
+import { useUserContext } from '../hooks/useUserContext';
+
 
 export function Login() {
     const { handleSubmit, register, formState: { errors } } = useForm();
     const [result, setResult] = useState(null);
     const navigate = useNavigate();
 
+    const { userCT } = useUserContext();
+
     const onSubmit = async (data) => {
         try {
             const user = await loginUser(data);
             setResult(user);
+            userCT.email = data.email;
+            userCT.name = data.email;
             navigate('/update');
         } catch (error) {
             setResult({
@@ -36,6 +42,7 @@ export function Login() {
                 handleClose={() => setResult(null)}
             />
             <Header title="Entre na sua conta" color="#fff" />
+            <Link to="/profile">profile</Link>
             <Form
                 noValidate
                 validated={!!errors}

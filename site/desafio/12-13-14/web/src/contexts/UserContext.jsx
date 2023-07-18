@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export const UserContext = createContext(null);
 
 export function UserContextProvider({ children }) {
-    const [user, setUser] = useState({
+    const [userCT, setUser] = useState({
         name: 'Username Teste',
         email: 'username@mail.com',
     });
@@ -15,7 +15,7 @@ export function UserContextProvider({ children }) {
     return (
         <UserContext.Provider
             value={{
-                user,
+                userCT,
                 setUser,
                 ola
             }}
